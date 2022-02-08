@@ -1,0 +1,18 @@
+//
+//  WheelUI_Example_iOSApp.swift
+//  WheelUI_Example_iOS
+//
+//  Created by Adam Dahan on 2022-02-08.
+//
+
+import SwiftUI
+
+@main
+struct WheelUI_Example_iOSApp: App {
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
