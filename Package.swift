@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Wheel",
+    platforms: [.iOS(.v13)],
     products: [
         .library(name: "WheelUI",     targets: ["WheelUI"]),
         .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation"]),
