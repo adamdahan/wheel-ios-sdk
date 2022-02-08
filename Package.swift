@@ -2,62 +2,29 @@
 
 import PackageDescription
 
-//let package = Package(
-//    name: "Wheel",
-//    platforms: [.iOS(.v13)],
-//    products: [
-//        .library(name: "WheelUI",     targets: ["WheelUI"]),
-//        .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation"]),
-//    ],
-//    dependencies: [
-//        .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios.git", from: "3.2.1")
-//    ],
-//    targets: [
-//        .target(
-//            name: "WheelUI",
-//            dependencies: [],
-//            path: "WheelUI/Sources/"
-//        ),
-//        .testTarget(name: "WheelUITests", dependencies: ["WheelUI"],
-//                    path: "WheelUI/Tests/WheelUITests"),
-//
-//        .target(name: "WheelUIAnimation", dependencies: ["Lottie"],
-//                path: "WheelUIAnimation/Sources/"),
-//        .testTarget(name: "WheelUIAnimationTests", dependencies: ["WheelUIAnimation"],
-//                    path: "WheelUIAnimation/Tests/WheelUIAnimationTests"),
-//    ]
-//)
-
 let package = Package(
     name: "Wheel",
+    platforms: [.iOS(.v13)],
     products: [
-    .library(
-        name: "Wheel",
-        targets: ["Wheel"]),
+        .library(name: "WheelUI",     targets: ["WheelUI"]),
+        .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios.git", from: "3.2.1")
+    ],
     targets: [
         .target(
-            name: "Wheel",
-            sources: ["WheelUI", "WheelUIAnimation"]
+            name: "WheelUI",
+            dependencies: [],
+            path: "WheelUI/Sources/"
         ),
+        .testTarget(name: "WheelUITests", dependencies: ["WheelUI"],
+                    path: "WheelUI/Tests/WheelUITests"),
+
+        .target(name: "WheelUIAnimation", dependencies: ["Lottie"],
+                path: "WheelUIAnimation/Sources/"),
+        .testTarget(name: "WheelUIAnimationTests", dependencies: ["WheelUIAnimation"],
+                    path: "WheelUIAnimation/Tests/WheelUIAnimationTests"),
     ]
 )
 
-extension Target {
-    static func target(name: String,
-                       sources: [String],
-                       dependencies: [Target.Dependency] = [])
-        -> Target {
-            return .target(name: name,
-                           dependencies: dependencies,
-                           path: ".",
-                           exclude: [],
-                           sources: sources,
-                           publicHeadersPath: nil,
-                           cSettings: nil,
-                           cxxSettings: nil,
-                           swiftSettings: nil,
-                           linkerSettings: nil)
-        }
-}
