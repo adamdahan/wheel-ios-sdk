@@ -1,10 +1,12 @@
+// swift-tools-version:5.2
+
 import PackageDescription
 
 let package = Package(
     name: "Wheel",
     products: [
         .library(name: "WheelUI",     targets: ["WheelUI"]),
-        .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation]),
+        .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation"]),
     ],
     dependencies: [
         // SPM does not support mixing of branch-based and unversioned dependencies :(
