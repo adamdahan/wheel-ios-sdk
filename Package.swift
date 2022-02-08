@@ -9,9 +9,7 @@ let package = Package(
         .library(name: "WheelUIAnimation",  targets: ["WheelUIAnimation"]),
     ],
     dependencies: [
-        // SPM does not support mixing of branch-based and unversioned dependencies :(
-        // .package(path: "someComponent"),
-        // .package(path: "anotherComponent"),
+        .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios.git", from: "3.2.1")
     ],
     targets: [
         .target(name: "WheelUI", dependencies: [],
@@ -19,7 +17,7 @@ let package = Package(
         .testTarget(name: "WheelUITests", dependencies: ["WheelUI"],
                     path: "WheelUI/Tests/WheelUITests"),
 
-        .target(name: "WheelUIAnimation", dependencies: [],
+        .target(name: "WheelUIAnimation", dependencies: ["Lottie"],
                 path: "WheelUIAnimation/Sources/"),
         .testTarget(name: "WheelUIAnimationTests", dependencies: ["WheelUIAnimation"],
                     path: "WheelUIAnimation/Tests/WheelUIAnimationTests"),
